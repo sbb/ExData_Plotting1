@@ -1,7 +1,7 @@
 # Common factored utility functions.  Each of the plotting scripts loads this
 # file so the definitions are available.
 
-PLOT_BACKGROUND_COLOR <- "gray56"
+PLOT_BACKGROUND_COLOR <- "transparent"
 
 POWER_CONSUMPTION_FILENAME <- "household_power_consumption.txt"
 

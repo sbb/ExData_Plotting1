@@ -4,10 +4,10 @@
 
 Dear reviewer,
 
-As per the project description, I have included 4 .png files, plots 1 through 4, and the 4 R scripts that
+As per the project description, I have included 4 .png files (plots 1 through 4), and the 4 R scripts that
 create them.  
 
-The scripts will (re-)generate the corresponding png files when loaded into R.  You need not invoke anything.  Since there were png artifacts included in the repo, I chose to match those (including the gray background), figuring they were more authoritative.  You can easily change the background color of all of them by changing the `PLOT_BACKGROUND_COLOR` in `common.R` to the color of your choice and reload the various plot scripts to regenerate the png files.
+The scripts will (re-)generate the corresponding png files when loaded into R.  You need not invoke anything explicitly.  Since there were png artifacts included in the repo, I chose to match those (including the transparent background), figuring they were more authoritative.  You can easily change the background color of all of them by changing the `PLOT_BACKGROUND_COLOR` variable in `common.R` to the color of your choice and reload the various plot scripts to regenerate the png files.
 
 Your working directory should be set to the directory containing these files before loading them into R.
 
