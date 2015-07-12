@@ -38,5 +38,5 @@ create.plot4 <- function(data = load.and.cache.data()) {
 }
 
 # Generate the plot.  It wasn't clear whether the assignment wanted this to automatically happen
-# as a part of loading the script or not, so I chose to make it automatic
+# as a part of loading the script or not, so I chose to make it automatic.
 create.plot4()
