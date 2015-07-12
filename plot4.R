@@ -1,5 +1,8 @@
+# Prevent plots 2 and 3 from running automatically when loaded.  Crude, but effective
+no.auto.run = TRUE
 source("plot2.R")
 source("plot3.R")
+rm(no.auto.run)
 
 render.voltage <- function(data) {
   # Need a continuous range of date/times, but they arrive in separate columns, so
@@ -21,14 +24,19 @@ render.reactive.power <- function(data) {
       xlab="datetime"))
 }
 
-create.plot4 <- function(data) {
-  png("plot4.png", bg="gray59")
+render.plot4 <- function(data) {
   par(mfcol=c(2,2))
   
-  render.plot2(data)
-  render.plot3(data)
+  render.plot2(data, ylab = 'Global Active Power')
+  render.plot3(data, legend.border = FALSE)
   render.voltage(data)
   render.reactive.power(data)
-  
-  dev.off()
 }
+
+create.plot4 <- function(data = load.and.cache.data()) {
+  render.to.png("plot4.png", render.plot4, data)
+}
+
+# Generate the plot.  It wasn't clear whether the assignment wanted this to automatically happen
+# as a part of loading the script or not, so I chose to make it automatic
+create.plot4()

@@ -1,15 +1,14 @@
-render.plot2 <- function(data) {
-  # Need a continuous range of date/times, but they arrive in separate columns, so
-  # glue them together before parsing them
-  datetimes <- paste(data$Date, data$Time)
-  
-  # Now draw the pretty picture.  REMIND: Why can't I use "lines()" here?
-  plot(strptime(datetimes, '%d/%m/%Y %H:%M:%S'), data$Global_active_power, type="l", 
-       ylab = "Global Active Power (kilowatts)", xlab=NA)
+source("common.R")
+
+render.plot2 <- function(data, ylab = "Global Active Power (kilowatts)") {
+  plot(data$DateTime, data$Global_active_power, type = "l", 
+       ylab = ylab, xlab = NA)
 }
 
-create.plot2 <- function(data) {
-  png("plot2.png", bg="gray59")
-  render.plot2(data)
-  dev.off()
+create.plot2 <- function(data = load.and.cache.data()) {
+  render.to.png("plot2.png", render.plot2, data)
 }
+
+# Generate the plot.  It wasn't clear whether the assignment wanted this to automatically happen
+# as a part of loading the script or not, so I chose to make it automatic
+if (!exists("no.auto.run")) create.plot2()
